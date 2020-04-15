@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>A.EZ|Chat</title>
+  </head>
+  <body>
+    <div>
+      <div class="row">
+        <div class="col s2 deep-orange lighten-1 side_bar"></div>
+        <div class="col s10 grey darken-4">
+          <div class="chat_container">
+            <div id="messages" class="messages_container"></div>
+            <div>
+              <form id="form" action="/">
+                <div class="input-field">
+                  <input
+                    placeholder="Message"
+                    id="msg"
+                    type="text"
+                    class="chat_input"
+                  />
+                  <label deep-orange lighten-1 for="msg">Message</label>
+                </div>
+                <button
+                  class="waves-effect waves-light deep-orange lighten-1 btn"
+                  id="btn"
+                >
+                  <i class="material-icons">create</i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chat.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.3/qs.min.js"
+      integrity="sha256-lSPkSu/D04IeqWOhTgTf5tLzNFEc37oNE9ysGS9PdK4="
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

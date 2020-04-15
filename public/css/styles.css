@@ -1,0 +1,96 @@
+/* General Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  line-height: 1.4;
+  font-family: 'Baloo Tamma 2', cursive;
+  background-color: #ff7043;
+}
+
+/* Chat Page Layout */
+
+.chat {
+  display: flex;
+}
+
+.side_bar {
+  height: 100vh;
+  color: white;
+}
+/* Chat styles */
+
+.row {
+  margin-bottom: 0px;
+}
+
+.chat_container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.messages_container {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+/* Message Styles */
+.msg_meta {
+  font-size: 0.8rem;
+  color: #ffffff;
+}
+
+.msg_user {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-right: 6px;
+}
+
+.message {
+  font-size: 1.2rem;
+  padding: 7px;
+  color: #ffffff;
+}
+
+.chat_input {
+  color: #ffffff;
+}
+
+/* home page */
+
+.container {
+  text-align: center;
+  margin-top: 6rem;
+}
+
+/*  */
+
+.room-title {
+  font-weight: 400;
+  font-size: 22px;
+  background: #2c2f3a;
+  padding: 24px;
+}
+
+.list-title {
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 4px;
+  padding: 12px 24px 0 24px;
+}
+
+.users {
+  list-style-type: none;
+  font-weight: 300;
+  padding: 12px 24px 0 24px;
+}
