@@ -4,6 +4,7 @@ const $text = document.querySelector('#msg');
 const $form = document.querySelector('#form');
 const $formBtn = document.querySelector('#btn');
 const $messages = document.querySelector('#messages');
+const $usersList = document.querySelector('#usersList');
 
 function parseQuery(queryString) {
   var query = {};
@@ -41,6 +42,8 @@ socket.on('message', ({ text, name, id, createdAt }) => {
   msg.appendChild(messageContent);
 
   $messages.appendChild(msg);
+
+  $messages.scrollTop = $messages.scrollHeight - $messages.clientHeight;
 });
 
 $form.addEventListener('submit', (e) => {
@@ -59,4 +62,24 @@ socket.emit('join', { name, room }, (error) => {
     alert(error);
     location.replace('/');
   }
+});
+
+socket.on('roomInfo', ({ room, users }) => {
+  const $header = document.querySelector('#header');
+  room = room.replace(room[0], room[0].toUpperCase());
+  $header.innerHTML = room;
+
+  //update users list
+  $usersList.innerHTML = '';
+  users.forEach((user) => {
+    const $icon = document.createElement('i');
+    $icon.innerHTML = 'insert_emoticon';
+    $icon.classList.add('material-icons');
+    const $name = document.createElement('span');
+    $name.innerHTML = user.name;
+    const $li = document.createElement('li');
+    $li.appendChild($icon);
+    $li.appendChild($name);
+    $usersList.appendChild($li);
+  });
 });

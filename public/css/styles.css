@@ -17,8 +17,17 @@ body {
 
 /* Chat Page Layout */
 
+li {
+  color: #2c2f3a;
+}
+li span {
+  margin-left: 10px;
+  font-size: 20px;
+  color: #2c2f3a;
+}
 .chat {
   display: flex;
+  padding: 10px;
 }
 
 .side_bar {
@@ -36,6 +45,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  padding: 20px;
 }
 
 .messages_container {
@@ -60,6 +70,7 @@ body {
   font-size: 1.2rem;
   padding: 7px;
   color: #ffffff;
+  margin-bottom: 0.5rem;
 }
 
 .chat_input {
