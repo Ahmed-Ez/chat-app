@@ -5,10 +5,23 @@ const $form = document.querySelector('#form');
 const $formBtn = document.querySelector('#btn');
 const $messages = document.querySelector('#messages');
 
-const { user, room } = Qs.parse(location.search, { ignoreQueryPrefix: true });
+function parseQuery(queryString) {
+  var query = {};
+  var pairs = (queryString[0] === '?'
+    ? queryString.substr(1)
+    : queryString
+  ).split('&');
+  for (var i = 0; i < pairs.length; i++) {
+    var pair = pairs[i].split('=');
+    query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
+  }
+  return query;
+}
 
-socket.on('message', ({ text, createdAt }) => {
-  const msg = document.createElement('p');
+const { name, room } = parseQuery(location.search);
+
+socket.on('message', ({ text, name, id, createdAt }) => {
+  const msg = document.createElement('div');
   const messageContent = document.createElement('p');
   messageContent.innerHTML = `${text}`;
   messageContent.classList.add('message');
@@ -17,8 +30,11 @@ socket.on('message', ({ text, createdAt }) => {
   messageTime.innerHTML += `${createdAt}`;
   messageTime.classList.add('msg_meta');
 
-  messageUser.innerHTML = 'User Name';
+  messageUser.innerHTML = name;
   messageUser.classList.add('msg_user');
+  if (socket.id === id) {
+    messageUser.classList.add('current');
+  }
 
   msg.appendChild(messageUser);
   msg.appendChild(messageTime);
@@ -38,4 +54,9 @@ $form.addEventListener('submit', (e) => {
   });
 });
 
-socket.emit('join', { user, room });
+socket.emit('join', { name, room }, (error) => {
+  if (error) {
+    alert(error);
+    location.replace('/');
+  }
+});

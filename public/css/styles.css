@@ -66,6 +66,10 @@ body {
   color: #ffffff;
 }
 
+.current {
+  color: #1eb2a6;
+}
+
 /* home page */
 
 .container {
