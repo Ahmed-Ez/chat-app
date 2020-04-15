@@ -2,19 +2,20 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const socketio = require('socket.io');
-const { genMessage } = require('./utils/messages');
+const { genMessage } = require('./src/utils/messages');
 const {
   addUser,
   removeUser,
   getUser,
   getUsersInRoom,
-} = require('./utils/users');
+} = require('./src/utils/users');
 
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
-const publicPath = path.join(__dirname, '../public');
+const publicPath = path.join(__dirname, '/public');
+console.log(publicPath);
 
 app.use(express.static(publicPath));
 
@@ -65,5 +66,5 @@ io.on('connection', (socket) => {
 const port = process.env.PORT | 3000;
 
 server.listen(port, () => {
-  console.log('App listening on port 3000!');
+  console.log(`App listening on port ${port}!`);
 });
