@@ -15,7 +15,6 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 const publicPath = path.join(__dirname, '../public');
-console.log(publicPath);
 
 app.use(express.static(publicPath));
 

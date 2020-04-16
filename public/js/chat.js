@@ -5,6 +5,7 @@ const $form = document.querySelector('#form');
 const $formBtn = document.querySelector('#btn');
 const $messages = document.querySelector('#messages');
 const $usersList = document.querySelector('#usersList');
+const $exitBtn = document.querySelector('#exitBtn');
 
 function parseQuery(queryString) {
   var query = {};
@@ -82,4 +83,8 @@ socket.on('roomInfo', ({ room, users }) => {
     $li.appendChild($name);
     $usersList.appendChild($li);
   });
+});
+
+$exitBtn.addEventListener('click', (e) => {
+  location.replace('/');
 });
