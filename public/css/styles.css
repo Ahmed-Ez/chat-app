@@ -17,6 +17,10 @@ body {
 
 /* Chat Page Layout */
 
+p {
+  word-wrap: normal;
+}
+
 li {
   color: #2c2f3a;
 }
