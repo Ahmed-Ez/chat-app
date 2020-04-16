@@ -21,6 +21,9 @@ p {
   word-wrap: normal;
 }
 
+h2 {
+  overflow-wrap: break-word;
+}
 li {
   color: #2c2f3a;
 }
@@ -28,6 +31,7 @@ li span {
   margin-left: 10px;
   font-size: 20px;
   color: #2c2f3a;
+  overflow-wrap: break-word;
 }
 .chat {
   display: flex;
