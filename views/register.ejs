@@ -17,19 +17,19 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/styles.css" />
-    <title>A.EZ|Home</title>
+    <title>A.EZ|Register</title>
   </head>
   <body>
     <div class="container">
       <div class="card">
         <div class="card-content">
-          <h1>Join</h1>
-          <form action="/chat.html">
+          <h1>Register</h1>
+          <form method="post">
             <div class="input-field">
               <input
-                placeholder="Display Name"
-                id="name"
+                placeholder="name"
                 name="name"
+                id="name"
                 type="text"
                 required
               />
@@ -37,22 +37,35 @@
             </div>
             <div class="input-field">
               <input
-                placeholder="Room Name"
-                name="room"
-                id="room"
-                type="text"
+                placeholder="Email"
+                id="email"
+                name="email"
+                type="email"
                 required
               />
-              <label deep-orange lighten-1 for="room">Room Name</label>
+              <label deep-orange lighten-1 for="email">Email</label>
             </div>
+            <div class="input-field">
+              <input
+                placeholder="password"
+                name="password"
+                id="password"
+                type="password"
+                required
+              />
+              <label deep-orange lighten-1 for="password">Password</label>
+            </div>
+
             <button
-              class="waves-effect waves-light deep-orange lighten-1 btn"
+              class="waves-effect waves-light red btn"
               id="btn"
+              type="submit"
             >
               <i class="material-icons">chat_bubble</i>
-              Join
+              Sign Up
             </button>
           </form>
+          <span>Already Have An Account ?<a href="/login"> Sign In</a></span>
         </div>
       </div>
     </div>

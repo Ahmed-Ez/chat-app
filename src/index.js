@@ -1,7 +1,10 @@
+require('dotenv').config('');
 const express = require('express');
 const path = require('path');
+const connection = require('../config/db');
 const http = require('http');
 const socketio = require('socket.io');
+const bodyparser = require('body-parser');
 const { genMessage } = require('./utils/messages');
 const {
   addUser,
@@ -9,15 +12,21 @@ const {
   getUser,
   getUsersInRoom,
 } = require('./utils/users');
-
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
 const publicPath = path.join(__dirname, '../public');
-
 app.use(express.static(publicPath));
+app.use(bodyparser.urlencoded({ extended: true }));
+app.set('view engine', 'ejs');
 
+connection();
+
+//ROUTES
+app.use('/', require('../routes/main'));
+
+//SOCKET
 io.on('connection', (socket) => {
   console.log('Client connected');
 

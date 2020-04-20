@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>A.EZ|Login</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="card-content">
+          <h1>Login</h1>
+          <form method="post">
+            <div class="input-field">
+              <input
+                placeholder="Email"
+                id="email"
+                name="email"
+                type="email"
+                required
+              />
+              <label for="email">Email</label>
+            </div>
+            <div class="input-field">
+              <input
+                placeholder="password"
+                name="password"
+                id="password"
+                type="password"
+                required
+              />
+              <label for="password">password</label>
+            </div>
+            <button
+              class="waves-effect waves-light waves-light red btn"
+              id="btn"
+              type="submit"
+            >
+              <i class="material-icons">chat_bubble</i>
+              Login
+            </button>
+          </form>
+          <span
+            >Don't have an account ? <a href="/register">Sign up</a> now</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>

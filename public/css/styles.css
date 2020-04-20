@@ -12,7 +12,7 @@ html {
 body {
   line-height: 1.4;
   font-family: 'Baloo Tamma 2', cursive;
-  background-color: #ff7043;
+  background-color: #f44336;
 }
 
 /* Chat Page Layout */
@@ -103,6 +103,25 @@ li span {
 .container {
   text-align: center;
   margin-top: 6rem;
+}
+
+.btn_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.collection a.collection-item {
+  color: #f44336;
+}
+
+.logout {
+  text-align: right;
+}
+
+/* login/register */
+.btn {
+  margin-bottom: 30px;
 }
 
 @media only screen and (max-width: 600px) {
