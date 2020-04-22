@@ -8,6 +8,7 @@ const {
   loginUser,
   getLoggedUser,
 } = require('../controllers/auth');
+const { getMessages } = require('../controllers/messages');
 
 //@Route GET /register
 //@desc registration page
@@ -121,10 +122,8 @@ router.route('/create').get((req, res) => {
 //@access private
 router.route('/create').post((req, res) => {
   const { room, id } = req.body;
-  console.log(room, id);
   const addedRoom = async (room, id) => {
     const newRoom = await addRoom(room, id);
-    console.log(newRoom);
     if (newRoom.room === null) {
       res.json({ error: newRoom.error });
     } else {
@@ -132,6 +131,18 @@ router.route('/create').post((req, res) => {
     }
   };
   addedRoom(room, id);
+});
+
+//@Route POST /messages
+//@desc get messages
+//@access private
+router.route('/messages').post((req, res) => {
+  const { room } = req.body;
+  const gettingMessages = async (room) => {
+    const messages = await getMessages(room);
+    res.json({ messages });
+  };
+  gettingMessages(room);
 });
 
 //@Route get /chat

@@ -1,8 +1,8 @@
-exports.genMessage = (text, name, id) => {
+exports.genMessage = (text, name, id, time = new Date().getTime()) => {
   return {
     text,
     name,
     id,
-    createdAt: `${new Date().getHours()}:${new Date().getMinutes()}`,
+    createdAt: time,
   };
 };

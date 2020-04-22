@@ -5,7 +5,9 @@ const getUser = async () => {
       'chat-token': token, //the token is a variable which holds the token
     },
   });
-  const { name, rooms } = res.data.user.user;
+  const { name, rooms, id } = res.data.user.user;
+  console.log(name, rooms);
+  fillRooms(rooms);
 };
 
 if (token) {
@@ -15,7 +17,12 @@ if (token) {
 }
 
 const $rooms = document.querySelector('#rooms-collection');
-
-const fillRooms = (rooms) => {
-  rooms.forEach((room) => {});
+const fillRooms = async (rooms) => {
+  rooms.forEach((room) => {
+    $a = document.createElement('a');
+    $a.setAttribute('href', `/chat?room=${room.name}`);
+    $a.classList.add('collection-item');
+    $a.innerHTML = `${room.name}`;
+    $rooms.appendChild($a);
+  });
 };

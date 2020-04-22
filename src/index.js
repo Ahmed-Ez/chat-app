@@ -5,6 +5,7 @@ const connection = require('../config/db');
 const http = require('http');
 const socketio = require('socket.io');
 const bodyparser = require('body-parser');
+const { addMessage } = require('../controllers/messages');
 const { genMessage } = require('./utils/messages');
 const {
   addUser,
@@ -26,6 +27,11 @@ connection();
 
 //ROUTES
 app.use('/', require('../routes/main'));
+
+//ADD MESSAGE TO DB
+const addedMessage = async (msg, name, time, room) => {
+  const message = await addMessage(msg, name, time, room);
+};
 
 //SOCKET
 io.on('connection', (socket) => {
@@ -51,7 +57,9 @@ io.on('connection', (socket) => {
   //Sending messages
   socket.on('sendMessage', (msg, callback) => {
     const user = getUser(socket.id);
-    io.to(user.room).emit('message', genMessage(msg, user.name, user.id));
+    const time = new Date().getTime();
+    addedMessage(msg, user.name, time, user.room);
+    io.to(user.room).emit('message', genMessage(msg, user.name, user.id, time));
     callback();
   });
 
