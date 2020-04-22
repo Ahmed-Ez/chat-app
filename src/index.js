@@ -19,6 +19,7 @@ const io = socketio(server);
 const publicPath = path.join(__dirname, '../public');
 app.use(express.static(publicPath));
 app.use(bodyparser.urlencoded({ extended: true }));
+app.use(express.json({ extended: false }));
 app.set('view engine', 'ejs');
 
 connection();

@@ -24,7 +24,7 @@
       <div class="card">
         <div class="card-content">
           <h1>Login</h1>
-          <form method="post">
+          <form id="login-form" method="post">
             <div class="input-field">
               <input
                 placeholder="Email"
@@ -47,7 +47,7 @@
             </div>
             <button
               class="waves-effect waves-light waves-light red btn"
-              id="btn"
+              id="login-btn"
               type="submit"
             >
               <i class="material-icons">chat_bubble</i>
@@ -63,5 +63,7 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../js/auth.js"></script>
   </body>
 </html>
